@@ -24,7 +24,9 @@ jobs:
         run: |
           chmod 777 ./gradlew
           ./gradlew clean build -x test
-
+          
+      - name: Copy Jar to build context
+        run: cp build/libs/*.jar .
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
