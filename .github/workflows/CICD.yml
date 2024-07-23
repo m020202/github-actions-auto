@@ -26,7 +26,14 @@ jobs:
           echo "Good"
           echo "Morning"
 
+      # $GITHUB_SHA: commit id에 해당하는 값
       - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
         run: |
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
+
+      - name: 아무한테도 노출이 되면 안 되는 값
+        run: |
+          echo ${{ secrets.DOCKERHUB_USERNAME }}
+          echo ${{ secrets.DOCKERHUB_EC2_SSH_KEY }}
+          
